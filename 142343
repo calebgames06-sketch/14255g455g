@@ -1,0 +1,13 @@
+-- Script Direto para o seu GitHub
+local itensEncontrados = 0
+for _, obj in pairs(game:GetDescendants()) do
+    if string.find(string.lower(obj.Name), "dragon") then
+        pcall(function()
+            if obj:IsA("Tool") or obj:IsA("Model") then
+                obj:Clone().Parent = game.Players.LocalPlayer.Backpack
+                itensEncontrados = itensEncontrados + 1
+            end
+        end)
+    end
+end
+print("Busca finalizada! Itens com nome Dragon encontrados: " .. itensEncontrados)
